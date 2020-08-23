@@ -25,7 +25,7 @@ class App extends React.Component {
         </div>
         <Cards data={data}/>
         <Graph />
-        <p>Zdroj: <a href="https://onemocneni-aktualne.mzcr.cz/">MZCR.cz</a></p>
+        <p>Zdroj: <a href="https://onemocneni-aktualne.mzcr.cz/">MZČR.cz</a></p>
       </div>
     )
   }
