@@ -1,21 +1,25 @@
-import React from 'react';
+import React from "react";
 
-import {Cards, Graph} from './components';
-import styles from './App.module.css';
-import { fetchData } from './api';
+import { Cards, Graph } from "./components";
+import styles from "./App.module.css";
+import { fetchData, fetchDailyDataDiff } from "./api";
 
 class App extends React.Component {
   state = {
     data: {},
-  }
+    dataDiff: {}
+  };
 
   async componentDidMount() {
     const fetchedData = await fetchData();
-    this.setState({data: fetchedData});
+    this.setState({ data: fetchedData });
+
+    const fetchedDailyDataDiff = await fetchDailyDataDiff();
+    this.setState({dataDiff: fetchedDailyDataDiff});
   }
 
   render() {
-    const { data } = this.state;
+    const { data, dataDiff } = this.state;
 
     return (
       <div className={styles.container}>
@@ -23,11 +27,13 @@ class App extends React.Component {
           <h1>COVID-19</h1>
           <h2>Česká republika</h2>
         </div>
-        <Cards data={data}/>
+        <Cards data={ data } dataDiff={ dataDiff }/>
         <Graph />
-        <p>Zdroj: <a href="https://onemocneni-aktualne.mzcr.cz/">MZČR.cz</a></p>
+        <p>
+          Zdroj: <a href="https://onemocneni-aktualne.mzcr.cz/">MZČR.cz</a>
+        </p>
       </div>
-    )
+    );
   }
 }
 
