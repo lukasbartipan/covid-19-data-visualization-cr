@@ -4,6 +4,8 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+Inspired by: https://www.youtube.com/watch?v=khJlrj3Y6Ls
+
 ## Available Scripts
 
 In the project directory, you can run:
