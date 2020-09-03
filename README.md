@@ -1,6 +1,6 @@
 # COVID-19 Visualization - Czech republic
 ## Preview
-  ![Preview](https://image.prntscr.com/image/NFJMQOMRTr_0E7wUghkuFg.png)
+  ![Preview](https://image.prntscr.com/image/AKNMZ7fUS6uidOTGwBgRfQ.png)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
