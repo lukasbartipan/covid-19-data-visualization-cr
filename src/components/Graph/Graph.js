@@ -25,6 +25,7 @@ const Graph = () => {
                 kumulativni_pocet_nakazenych,
             ),
             label: "Infikovaní",
+            fontColor: "#e3e3e3e",
             borderColor: "rgba(255, 0, 0, 0.8)",
             fill: true,
           },
@@ -46,6 +47,13 @@ const Graph = () => {
             fill: true,
           },
         ],
+        options: {
+        legend: {
+            labels: {
+                fontColor: 'white'
+            }
+          }
+        }
       }}
     />
   ) : null;

@@ -1,9 +1,11 @@
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: rgb(245, 245, 245);
+    /*background-color: rgb(245, 245, 245);*/
+    background-color: #e3e3e3;
     padding: 0;
     margin: 0;
     height: 100vh;
+    color: #232323;
 }
 
 .container {

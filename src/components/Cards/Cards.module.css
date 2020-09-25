@@ -5,7 +5,8 @@
 }
 
 .card {
-    margin: 1% !important; 
+    margin: 1% !important;
+    background-color: #f2f2f2 !important;
 }
 
 .infected {
@@ -45,3 +46,20 @@
     flex-direction: row !important;
     align-items: center !important;
 }
+
+.modifiedDate {
+    font-size: 14px !important;
+}
+
+@media only screen and (max-width: 768px) {
+    .card {
+        width: 80% !important;
+        margin: 3% 0px !important;
+    }
+
+    .container {
+        margin-top: 10% !important;
+        padding: 0px 10%;
+    }
+}
+  

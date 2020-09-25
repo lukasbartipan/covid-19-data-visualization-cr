@@ -56,7 +56,7 @@ const Cards = ({
                 </p>
             </div>
             <Typography color="textSecondary">
-              {new Date(modified).toLocaleString("cs-CZ")}
+              <span className={ styles.modifiedDate }>{new Date(modified).toLocaleString("cs-CZ")}</span>
             </Typography>
             <Typography variant="body2">
               Počet aktivních případů nákazy COVID-19
@@ -93,7 +93,7 @@ const Cards = ({
                 </p>
             </div>
             <Typography color="textSecondary">
-              {new Date(modified).toLocaleString("cs-CZ")}
+              <span className={ styles.modifiedDate }>{new Date(modified).toLocaleString("cs-CZ")}</span>
             </Typography>
             <Typography variant="body2">
               Počet vyléčených případů nákazy COVID-19
@@ -120,7 +120,7 @@ const Cards = ({
               />
             </Typography>
             <Typography color="textSecondary">
-              {new Date(modified).toLocaleString("cs-CZ")}
+              <span className={ styles.modifiedDate }>{new Date(modified).toLocaleString("cs-CZ")}</span>
             </Typography>
             <Typography variant="body2">
               Počet hospitalizovaných s nákazou COVID-19
@@ -157,7 +157,7 @@ const Cards = ({
                 </p>
             </div>
             <Typography color="textSecondary">
-              {new Date(modified).toLocaleString("cs-CZ")}
+              <span className={ styles.modifiedDate }>{new Date(modified).toLocaleString("cs-CZ")}</span>
             </Typography>
             <Typography variant="body2">
               Počet úmrtí na nákazu COVID-19

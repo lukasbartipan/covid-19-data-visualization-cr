@@ -1,13 +1,14 @@
 import React from "react";
 
-import { Cards, Graph } from "./components";
+import { Cards, Map } from "./components";
 import styles from "./App.module.css";
-import { fetchData, fetchDailyDataDiff } from "./api";
+import { fetchData, fetchDailyDataDiff, fetchRegionData } from "./api";
 
 class App extends React.Component {
   state = {
     data: {},
-    dataDiff: {}
+    dataDiff: {},
+    regionData: {}
   };
 
   async componentDidMount() {
@@ -16,11 +17,13 @@ class App extends React.Component {
 
     const fetchedDailyDataDiff = await fetchDailyDataDiff();
     this.setState({dataDiff: fetchedDailyDataDiff});
+
+    const fetchedRegionData = await fetchRegionData();
+    this.setState({regionData: fetchedRegionData});
   }
 
   render() {
-    const { data, dataDiff } = this.state;
-
+    const { data, dataDiff, regionData } = this.state;
     return (
       <div className={styles.container}>
         <div className={styles.header}>
@@ -28,9 +31,9 @@ class App extends React.Component {
           <h2>Česká republika</h2>
         </div>
         <Cards data={ data } dataDiff={ dataDiff }/>
-        <Graph />
+        <Map data={ regionData }/>
         <p>
-          Zdroj: <a href="https://onemocneni-aktualne.mzcr.cz/">MZČR.cz</a>
+          Zdroj dat: <a href="https://onemocneni-aktualne.mzcr.cz/">MZČR.cz</a>
         </p>
       </div>
     );
