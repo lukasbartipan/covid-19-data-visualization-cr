@@ -4,7 +4,6 @@ const urlOverview = "https://onemocneni-aktualne.mzcr.cz/api/v2/covid-19/zakladn
 const urlDaily = "https://onemocneni-aktualne.mzcr.cz/api/v2/covid-19/nakazeni-vyleceni-umrti-testy.json";
 const urlRegion = "https://onemocneni-aktualne.mzcr.cz/api/v2/covid-19/kraj-okres-nakazeni-vyleceni-umrti.json";
 
-
 export const fetchData = async () => {
   try {
     const {
@@ -70,26 +69,46 @@ export const fetchDailyDataDiff = async () => {
 export const fetchRegionData = async () => {
   try {
 		const {data: {data}} = await axios.get(urlRegion);
-		let modifiedData = [];
-		let finalData = [];
+		let newData = [];
 
-		// TODO: format data for regions
 		const dateModified = data[data.length-1].datum;
 		data.forEach(item => {
 			if (item.datum === dateModified) {
-				modifiedData.push(item);
+				newData.push(item);
 			}
 		});
-		const grouppedData = groupBy(modifiedData, 'kraj_nuts_kod');
-		console.log(grouppedData);
+
+		const reducedData = reduceData(newData, 'kraj_nuts_kod');
 		
-		return data;
+		return reducedData;
+
   } catch (e) {}
 };
 
-const groupBy = (xs, key) => {
-	return xs.reduce(function(rv, x) {
-	  (rv[x[key]] = rv[x[key]] || []).push(x);
-	  return rv;
-	}, {});
-  };
+const reduceData = (array, key) => {
+	return array.reduce((result, currentValue) => {
+
+		// create empty object if there isnt any
+		if (!result[currentValue[key]]) {
+			result[currentValue[key]] = {}; 
+    	}
+
+		// add data to existing object
+		if (result[currentValue[key]]?.datum) {
+			result[currentValue[key]].pocet_nakazenych += +currentValue.kumulativni_pocet_nakazenych;
+			result[currentValue[key]].pocet_umrti += +currentValue.kumulativni_pocet_umrti;
+			result[currentValue[key]].pocet_vylecenych += +currentValue.kumulativni_pocet_vylecenych;
+
+		} else { // add modified data to empty object
+			result[currentValue[key]] = { 
+											datum: currentValue.datum, 
+											pocet_nakazenych: currentValue.kumulativni_pocet_nakazenych,
+											pocet_umrti: currentValue.kumulativni_pocet_umrti,
+											pocet_vylecenych: currentValue.kumulativni_pocet_vylecenych 
+										};
+		} 
+
+		return result;
+	}, []);
+};
+
