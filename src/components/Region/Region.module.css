@@ -1,0 +1,22 @@
+.region_container {
+    position: absolute;
+    top: 65%; right: -10px;
+    z-index: 2;
+    background-color: #fff;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 15%;
+}
+
+.region_container div {
+    margin-bottom: 1%;
+}
+
+.date {
+    margin: 0px;
+    opacity: 0.7;
+    font-size: 14px;
+}
