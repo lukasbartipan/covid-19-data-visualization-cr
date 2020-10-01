@@ -8,11 +8,16 @@
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    width: 15%;
+    width: 12%;
+    height: 20%;
 }
 
 .region_container div {
     margin-bottom: 1%;
+}
+
+.region_container h4 {
+    margin: 2%;
 }
 
 .date {
