@@ -10,13 +10,13 @@ const Region = ({regionData: {data, name}, mousePos}) => {
         <div className={styles.region_container} style={{left: mousePos.X + 'px', top: mousePos.Y + 'px', pointerEvents: "none"}}>
             <h4>{name}</h4>
             <div>
-                Nakažení: {data.pocet_nakazenych}
+                Infikovaní: {data.pocet_nakazenych}
             </div>
             <div>
                 Vyléčení: {data.pocet_vylecenych}
             </div>
             <div>
-                Umrtí: {data.pocet_umrti}
+                Úmrtí: {data.pocet_umrti}
             </div>
             <p className={styles.date}>Aktuální k: {new Date(data.datum).toLocaleDateString('cs-CZ')}</p>
         </div>
