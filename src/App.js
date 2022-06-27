@@ -4,6 +4,7 @@ import { Cards, Map } from "./components";
 import styles from "./App.module.css";
 import { fetchData, fetchDailyDataDiff, fetchRegionData } from "./api";
 
+// Main App Component
 class App extends React.Component {
   state = {
     data: {},
